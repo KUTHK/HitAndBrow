@@ -1,4 +1,4 @@
-# life, numCount, minValue, maxValue
+life, numCount, minValue, maxValue
 2,        4,        0,        9
 8,        5,        1,        8
 6,        6,        2,        7

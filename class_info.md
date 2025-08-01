@@ -42,7 +42,7 @@ Main
   * 選択肢を表示する
   * プレイヤーに数字列を入力させる
   * 正解（答え）との比較結果（Hit, Blow）を表示
-  * 正解が出るまで繰り返す
+  * プレイヤーのライフがなくなるまでor正解が出るまで繰り返す
 * **メンバ変数例**：
 
   * `Paddle answer`（ランダムに生成された正解）
@@ -62,8 +62,6 @@ Main
   * 残り試行回数の制御
   * 入力結果を `Paddle` として返す
 * **メソッド例**：
-
-  * `Paddle inputGuess(int length)`
 </details>
 
 ---
@@ -102,7 +100,7 @@ Main
 * **主な役割**：
 
   * `compare(List<Ball> answer, List<Ball> guess)` のような判定メソッドを提供
-  * 戻り値： `int[]` または `Result`（例：`new int[]{hit, blow}`）
+  * 戻り値： `Result`（例：`new int[]{hit, blow}`）
 </details>
 
 ---
@@ -133,7 +131,6 @@ Main
 
 ## 📝 設計上のポイント
 
-* `Ball` をトップレベルクラスにしたことで、GameManager・Player など他クラスからも使いやすい
 * `Paddle` は入力値・正解のどちらにも使える汎用的なラッパー
 * `Judge` がロジックを担当することで、役割分離が明確
 * CLIベースだが、構成はそのままGUIへの展開がしやすい
