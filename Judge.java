@@ -9,9 +9,6 @@
  * 使用方法:
  * - `compare(Paddle answer, Paddle guess)`メソッドを呼び出して判定を実行します。
  * - 戻り値はint配列で、[0]がHitの数、[1]がBlowの数を表します。
- * 
- * クラス変数:
- * - なし
  */
 
 public class Judge {

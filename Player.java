@@ -8,6 +8,7 @@ import java.util.Scanner;
  * 主な役割:
  * - ユーザー入力のバリデーション
  * - 残り試行回数の管理
+ * - 入力結果をPaddleとして返す
  * 
  * 使用方法:
  * - `new Player(int maxTries)`でインスタンスを作成します。
@@ -17,6 +18,7 @@ import java.util.Scanner;
  * 
  * クラス変数:
  * - life: 残り試行回数を保持する整数型の変数
+ * - scanner: ユーザー入力用のスキャナー
  */
 public class Player {
     private int life; // 残り試行回数
@@ -28,6 +30,7 @@ public class Player {
      * 
      * @param maxTries 最大試行回数
      */
+
     public Player(int maxTries) {
         this.life = maxTries;
         this.scanner = new Scanner(System.in); // スキャナーを初期化
@@ -40,7 +43,9 @@ public class Player {
      * @param minValue 数字の最小値
      * @param maxValue 数字の最大値
      * @return ユーザー入力を基にしたPaddleオブジェクト
+     * @throws IllegalArgumentException 入力が無効な場合
      */
+
     public Paddle getInput(int numCount, int minValue, int maxValue) {
         String[] tokens;
 
@@ -101,6 +106,7 @@ public class Player {
      * 
      * @return 残り試行回数
      */
+
     public int getLife() {
         return life;
     }

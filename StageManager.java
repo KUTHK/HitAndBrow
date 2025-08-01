@@ -12,10 +12,16 @@ import java.util.*;
  * - ステージごとの設定の保持
  * 
  * 使用方法:
- * - `new StageManager(int totalStages)`でインスタンスを作成します。
+ * - `new StageManager(String filePath)`でインスタンスを作成します。
  * - `nextStage()`で次のステージに進みます。
  * - `isLastStage()`で現在のステージが最後かどうかを判定します。
  * - `getCurrentStage()`で現在のステージ番号を取得します。
+ * - `loadStageSettings(String filePath)`でステージ設定をファイルから読み込みます。
+ * 
+ * クラス変数:
+ * - currentStage: 現在のステージ番号
+ * - totalStages: 総ステージ数
+ * - stageSettings: 各ステージの設定を保持するリスト
  */
 public class StageManager {
     private int currentStage; // 現在のステージ番号
@@ -87,7 +93,7 @@ public class StageManager {
     /**
      * 現在のステージの設定を取得します。
      * 
-     * @return 現在のステージの設定マップ
+     * @return 現在のステージの設定マップ (例: life, numCount, minValue, maxValue)
      */
     public Map<String, Integer> getCurrentStageSetting() {
         if (stageSettings == null || currentStage >= stageSettings.size()) {
@@ -100,6 +106,7 @@ public class StageManager {
      * ファイルからステージ設定を読み込みます。
      * 
      * @param filePath 読み込み元のファイルパス
+     * @return ステージ設定のリスト (各ステージの設定を保持するマップのリスト)
      * @throws IOException ファイル操作中のエラー
      */
     public List<Map<String, Integer>> loadStageSettings(String filePath) throws IOException {

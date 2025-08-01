@@ -11,18 +11,18 @@ import java.io.IOException;
  * - ゲームの繰り返し処理
  * 
  * 使用方法:
- * - `new GameManager(int numCount, int max_life)`でインスタンスを作成します。
- * - `new GameManager(int numCount, int max_life, int min_value, int max_value)`でインスタンスを作成します。
+ * - `new GameManager(String stageSettingsFilePath)`でインスタンスを作成します。
  * - `start()`メソッドを呼び出してゲームを開始します。
  * 
  * クラス変数:
  * - answer: 正解の数字列を保持するPaddleオブジェクト
  * - player: プレイヤー情報を管理するPlayerオブジェクト
  * - judge: 判定ロジックを提供するJudgeオブジェクト
- * - max_life: 最大試行回数
- * - numCount: 数字の個数
- * - minValue: 数字の最小値
- * - maxValue: 数字の最大値
+ * - max_life; // 最大試行回数
+ * - numCount; // 数字の個数
+ * - minValue; // 数字の最小値
+ * - maxValue; // 数字の最大値
+ * - stageManager: ステージ管理を行うStageManagerオブジェクト
  */
 public class GameManager {
     private Paddle answer; // 正解の数字列
@@ -39,7 +39,7 @@ public class GameManager {
      * 指定された設定ファイルパスでGameManagerオブジェクトを初期化します。
      * 
      * @param stageSettingsFilePath ステージ設定ファイルのパス
-     * @throws IOException 入出力例外
+     * @throws IOException ステージ設定ファイルの読み込み中にエラーが発生した場合
      */
     public GameManager(String stageSettingsFilePath) throws IOException {
         this.stageManager = new StageManager(stageSettingsFilePath);
@@ -50,6 +50,8 @@ public class GameManager {
     /**
      * クラス変数の初期化
      * ゲーム開始前に必要な変数を初期化します。
+     * 
+     * @throws IllegalStateException StageManagerが初期化されていない場合
      */
     private void initializeGame() {
         if (stageManager == null) {
