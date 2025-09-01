@@ -2,7 +2,7 @@
 JAVAC = javac
 JAVA = java
 SRC_DIR = ../src
-BIN_DIR = bin
+BIN_DIR = ../bin
 
 # ソースファイルとターゲット
 SOURCES = $(wildcard $(SRC_DIR)/*.java)
