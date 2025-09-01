@@ -23,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             System.out.println("Hit & Blow ゲームを開始します！");
-            String stageSettingsFilePath = "stage_settings.txt"; // ステージ設定ファイルのパス
+            String stageSettingsFilePath = "../resources/stage_settings.txt"; // ステージ設定ファイルのパス
             try {
                 GameManager gameManager = new GameManager(stageSettingsFilePath);
                 gameManager.start();

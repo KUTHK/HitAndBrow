@@ -9,7 +9,10 @@ SOURCES = $(wildcard $(SRC_DIR)/*.java)
 CLASSES = $(SOURCES:$(SRC_DIR)/%.java=$(BIN_DIR)/%.class)
 
 # デフォルトターゲット
-all: $(CLASSES)
+all:
+	@mkdir -p $(BIN_DIR)
+	$(JAVAC) -d $(BIN_DIR) -cp $(BIN_DIR) $(SOURCES)
+
 
 # コンパイルルール
 $(BIN_DIR)/%.class: $(SRC_DIR)/%.java
