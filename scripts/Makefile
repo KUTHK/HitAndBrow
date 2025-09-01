@@ -1,7 +1,7 @@
 # Javaコンパイラとフラグ
 JAVAC = javac
 JAVA = java
-SRC_DIR = .
+SRC_DIR = ../src
 BIN_DIR = bin
 
 # ソースファイルとターゲット

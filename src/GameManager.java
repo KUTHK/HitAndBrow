@@ -65,10 +65,10 @@ public class GameManager {
             this.answer = Paddle.generateRandom(numCount, minValue, maxValue);
             this.player = new Player(max_life);
         }
-        // debug用に正解を表示
-        System.out.println("正解: ");
-        answer.println();
-        System.out.println();
+        // // debug用に正解を表示
+        // System.out.println("正解: ");
+        // answer.println();
+        // System.out.println();
     }
 
     /**
@@ -106,4 +106,37 @@ public class GameManager {
             System.out.print(" でした。");
         }
     }
+
+    /**
+     * プレイヤーの入力を受け付け、正解と比較して結果を返します。
+     * 
+    public int[] playTurn(Paddle guess) {
+        int[] result = judge.compare(answer, guess);
+        if (result[0] == answer.getBalls().size()) {
+            stageManager.nextStage();
+            if (!stageManager.isLastStage()) {
+                initializeGame();
+            }
+        } else {
+            player.decLife();
+        }
+        return result;
+    }
+
+    // /**
+    //  * 現在のステージ設定を取得します。
+    //  * 
+    //  * @return ステージ設定のマップ
+    //  */
+    // public Map<String, Integer> getCurrentStageSettings() {
+    //     Map<String, Integer> settings = new HashMap<>();
+    //     settings.put("numCount", numCount);
+    //     settings.put("minValue", minValue);
+    //     settings.put("maxValue", maxValue);
+    //     settings.put("maxLife", max_life);
+    //     settings.put("currentLife", player.getLife());
+    //     return settings;
+    // }
 }
+
+

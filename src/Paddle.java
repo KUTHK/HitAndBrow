@@ -45,12 +45,22 @@ public class Paddle {
      * @return ランダムな数字列を持つPaddleオブジェクト
      */
     public static Paddle generateRandom(int numCount, int minValue, int maxValue) {
+        if (maxValue - minValue + 1 < numCount) {
+            throw new IllegalArgumentException("指定された範囲では一意の数字列を生成できません。");
+        }
+
         Random random = new Random();
+        List<Integer> availableNumbers = new ArrayList<>();
+        for (int i = minValue; i <= maxValue; i++) {
+            availableNumbers.add(i);
+        }
+
         int[] input = new int[numCount];
         for (int i = 0; i < numCount; i++) {
-            // minValue-maxValueのランダムな数字を生成
-            input[i] = random.nextInt(maxValue - minValue + 1) + minValue;
+            int index = random.nextInt(availableNumbers.size());
+            input[i] = availableNumbers.remove(index);
         }
+
         return new Paddle(input);
     }
 

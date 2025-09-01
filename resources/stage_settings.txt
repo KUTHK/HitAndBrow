@@ -1,0 +1,4 @@
+life, numCount, minValue, maxValue
+10,       3,        0,        9
+15,       4,        0,        9
+20,       5,        0,        5
