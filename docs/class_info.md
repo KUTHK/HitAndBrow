@@ -6,7 +6,6 @@
 
 ```
 Main
-├── soundManager // 音楽関係を制御
 └── GameManager  // ゲーム全体の流れを制御
     ├── Player   // 入力を受け取り、Paddleを返す
     ├── Ball     // 1桁の数字と表示を担当
